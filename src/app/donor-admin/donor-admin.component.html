@@ -1,0 +1,102 @@
+<div class="donor-patient-form-container">
+    <h2>Post Donor Need</h2>
+  
+    <form (ngSubmit)="onSubmit()" #donorForm="ngForm">
+    
+      <div class="form-group">
+        <label for="donorType">Donor Type:</label>
+        <select
+          id="donorType"
+          [(ngModel)]="donor.donorType"
+          name="donorType"
+          class="form-control"
+          required
+        >
+          <option value="Blood">Blood</option>
+          <option value="Organ">Organ</option>
+          <option value="Plasma">Plasma</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+  
+    
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="donor.name"
+          name="name"
+          class="form-control"
+          required
+          placeholder="Name of the person"
+        />
+      </div>
+  
+  
+      <div class="form-group">
+        <label for="contactInfo">Contact Info</label>
+        <input
+          type="text"
+          id="contactInfo"
+          [(ngModel)]="donor.contactInfo"
+          name="contactInfo"
+          class="form-control"
+          required
+          placeholder="Contact details for the person requesting"
+        />
+      </div>
+  
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          [(ngModel)]="donor.location"
+          name="location"
+          class="form-control"
+          required
+          placeholder="Location (e.g., Hospital Name)"
+        />
+      </div>
+  
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          [(ngModel)]="donor.description"
+          name="description"
+          class="form-control"
+          required
+          placeholder="e.g., Kidney, Type A"
+        />
+      </div>
+  
+   
+      <div class="form-group">
+        <label for="availability">Availability</label>
+        <input
+          type="text"
+          id="availability"
+          [(ngModel)]="donor.availability"
+          name="availability"
+          class="form-control"
+          required
+          placeholder="Available for Donation"
+        />
+      </div>
+  
+      
+      <button
+        type="submit"
+        [disabled]="!donorForm.form.valid"
+        class="btn btn-primary"
+      >
+        Submit Donor Need
+      </button>
+    </form>
+  </div>
+  

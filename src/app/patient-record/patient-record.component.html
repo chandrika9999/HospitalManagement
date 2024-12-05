@@ -1,0 +1,70 @@
+<p>patient-record works!</p>
+<div class="record-container">
+    <h2>Patient Record</h2>
+  
+   
+    <div class="patient-details">
+      <h3>Patient Information</h3>
+      <table class="patient-info-table">
+        <tr>
+          <td><strong>Patient ID:</strong></td>
+          <td>{{ patientDetails.PatientId }}</td>
+        </tr>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td>{{ patientDetails.Name }}</td>
+        </tr>
+        <tr>
+          <td><strong>Date of Birth:</strong></td>
+          <td>{{ patientDetails.DateOfBirth | date:'longDate' }}</td>
+        </tr>
+        <tr>
+          <td><strong>Contact Info:</strong></td>
+          <td>{{ patientDetails.ContactInfo }}</td>
+        </tr>
+        <tr>
+          <td><strong>Address:</strong></td>
+          <td>{{ patientDetails.Address }}</td>
+        </tr>
+        <tr>
+          <td><strong>Emergency Contact:</strong></td>
+          <td>{{ patientDetails.EmergencyContact }}</td>
+        </tr>
+        <tr>
+          <td><strong>Medical History:</strong></td>
+          <td>{{ patientDetails.MedicalHistory }}</td>
+        </tr>
+      </table>
+    </div>
+  
+  
+    <div class="appointments">
+      <h3>Upcoming Appointments</h3>
+      <table class="appointments-table">
+        <thead>
+          <tr>
+            <th>Appointment Date</th>
+            <th>Doctor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of upcomingAppointments">
+            <td>{{ appointment.date | date:'short' }}</td>
+            <td>{{ appointment.doctor }}</td>
+            <td>{{ appointment.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="upcomingAppointments.length === 0">No upcoming appointments.</p>
+    </div>
+  
+    <div class="treatment-progress">
+      <h3>Treatment Progress</h3>
+      <ul>
+        <li *ngFor="let progress of treatmentProgress">{{ progress }}</li>
+      </ul>
+      <p *ngIf="treatmentProgress.length === 0">No treatment progress available.</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,50 @@
+<div class="inventory-container">
+  <h2>Inventory Management</h2>
+
+
+  <form (ngSubmit)="onSubmit()" #inventoryForm="ngForm">
+    <div>
+      <label for="itemId">Item ID:</label>
+      <input type="text" id="itemId" [(ngModel)]="inventoryItem.itemId" name="itemId" required />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="inventoryItem.name" name="name" required />
+    </div>
+    <div>
+      <label for="category">Category:</label>
+      <input type="text" id="category" [(ngModel)]="inventoryItem.category" name="category" required />
+    </div>
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" [(ngModel)]="inventoryItem.quantity" name="quantity" required />
+    </div>
+    <div>
+      <label for="reorderLevel">Reorder Level:</label>
+      <input type="number" id="reorderLevel" [(ngModel)]="inventoryItem.reorderLevel" name="reorderLevel" required />
+    </div>
+    <button type="submit">Add Item</button>
+  </form>
+
+  <h3>Inventory Items</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Reorder Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventoryItems">
+        <td>{{ item.itemId }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.reorderLevel }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

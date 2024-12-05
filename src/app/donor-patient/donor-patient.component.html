@@ -1,0 +1,16 @@
+<div class="patient-view-container">
+    <h2>Donor Needs</h2>
+  
+    <div *ngIf="donorNeeds.length === 0" class="alert alert-info">
+      No donor needs available at the moment.
+    </div>
+  
+    <div *ngFor="let donor of donorNeeds" class="donor-item">
+      <h3>{{ donor.donorType }} Needed</h3>
+      <p><strong>Details:</strong> {{ donor.details }}</p>
+      <p><strong>Location:</strong> {{ donor.location }}</p>
+      <p><strong>Contact:</strong> {{ donor.contactInfo }}</p>
+      <p><strong>Availability:</strong> {{ donor.availability }}</p>
+    </div>
+  </div>
+  

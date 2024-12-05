@@ -1,0 +1,36 @@
+<div class="patient-emergency">
+    <h2>Emergency Alert</h2>
+    
+    <form (ngSubmit)="submitAlert()" #emergencyForm="ngForm">
+      <div class="form-group">
+        <label for="patientId">Patient ID:</label>
+        <input 
+          type="text" 
+          id="patientId" 
+          [(ngModel)]="emergencyAlert.patientId" 
+          name="patientId" 
+          class="form-control" 
+          required />
+      </div>
+    
+      <div class="form-group">
+        <label for="alertTime">Alert Time:</label>
+        <input 
+          type="datetime-local" 
+          id="alertTime" 
+          [(ngModel)]="emergencyAlert.alertTime" 
+          name="alertTime" 
+          class="form-control" 
+          required />
+      </div>
+    
+      <button type="submit" [disabled]="!emergencyForm.valid" class="btn btn-danger">
+        Send SOS Alert
+      </button>
+    </form>
+  
+    <div *ngIf="emergencyAlert.doctorAssigned">
+      <p><strong>Assigned Doctor:</strong> {{ emergencyAlert.doctorAssigned }}</p>
+    </div>
+  </div>
+  

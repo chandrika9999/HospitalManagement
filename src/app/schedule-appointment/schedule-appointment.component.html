@@ -1,0 +1,61 @@
+<div class="appointment-container">
+  <h2>Schedule Appointment</h2>
+
+ 
+  <div>
+    <label for="specialization">Select Specialization:</label>
+    <select id="specialization" [(ngModel)]="selectedSpecialization" (change)="onSpecializationChange()" class="form-control">
+      <option value="">--Select Specialization--</option>
+      <option *ngFor="let specialization of specializations" [value]="specialization">
+        {{ specialization }}
+      </option>
+    </select>
+  </div>
+
+ 
+  <div *ngIf="selectedSpecialization">
+    <label for="appointment-date">Select Date:</label>
+    <input type="date" [(ngModel)]="appointmentDate" (change)="onDateChange()" class="form-control" />
+  </div>
+
+ 
+  <div *ngIf="availableDoctorsForDate.length > 0">
+    <h3>Available Doctors on {{ appointmentDate }}:</h3>
+    <div *ngFor="let doctor of availableDoctorsForDate">
+      <div class="doctor-card">
+        <div><strong>{{ doctor.name }}</strong></div>
+        <div><em>{{ doctor.availability }}</em></div>
+        <div>{{ doctor.location }}</div>
+        <div>{{ doctor.date }}</div>
+
+        
+        <div *ngIf="doctor.timeSlots.length > 0">
+          <h4>Available Time Slots:</h4>
+          <div class="time-slot-container">
+            <div *ngFor="let slot of doctor.timeSlots">
+              <button 
+                (click)="selectTimeSlot(doctor, slot)" 
+                [ngClass]="{'selected': doctor.selectedSlot === slot, 'frozen': doctor.selectedSlot === slot}"
+                class="btn btn-info">
+                {{ slot }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+       
+        <button 
+          (click)="bookAppointment(doctor)" 
+          class="btn btn-success" 
+          [disabled]="!doctor.selectedSlot">
+          Book Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <button (click)="bookAppointment()" class="btn btn-primary" [disabled]="!selectedSpecialization || !appointmentDate">
+    Book Appointment
+  </button>
+</div> 

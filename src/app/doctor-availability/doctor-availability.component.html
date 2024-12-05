@@ -1,0 +1,101 @@
+<div class="doctor-form-container">
+  <h2>Enter Doctor Availability</h2>
+
+  <form (ngSubmit)="onSubmit()" #doctorForm="ngForm" novalidate>
+  
+    <div class="form-group">
+      <label for="id">Doctor ID:</label>
+      <input
+        type="text"
+        id="id"
+        [(ngModel)]="doctor.id"
+        name="id"
+        required
+        class="form-control"
+      />
+    </div>
+
+  
+    <div class="form-group">
+      <label for="name">Doctor Name:</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="doctor.name"
+        name="name"
+        required
+        class="form-control"
+      />
+    </div>
+
+ 
+    <div class="form-group">
+      <label for="specialization">Specialization:</label>
+      <input
+        type="text"
+        id="specialization"
+        [(ngModel)]="doctor.specialization"
+        name="specialization"
+        required
+        class="form-control"
+      />
+    </div>
+
+  
+    <div class="form-group">
+      <label for="availability">Availability (e.g., 9 AM - 4 PM):</label>
+      <input
+        type="text"
+        id="availability"
+        [(ngModel)]="doctor.availability"
+        name="availability"
+        required
+        class="form-control"
+      />
+    </div>
+
+   
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        [(ngModel)]="doctor.location"
+        name="location"
+        required
+        class="form-control"
+      />
+    </div>
+
+    
+    <div class="form-group">
+      <label for="availableDates">Available Dates (comma-separated):</label>
+      <input
+        type="text"
+        id="availableDates"
+        [(ngModel)]="doctor.availableDates"
+        name="availableDates"
+        required
+        class="form-control"
+      />
+    </div>
+
+  
+    <div class="form-group">
+      <label for="timeSlots">Time Slots (comma-separated):</label>
+      <input
+        type="text"
+        id="timeSlots"
+        [(ngModel)]="doctor.timeSlots"
+        name="timeSlots"
+        required
+        class="form-control"
+      />
+    </div>
+
+   
+    <button type="submit" [disabled]="!doctorForm.form.valid" class="btn btn-primary">
+      Submit Doctor Availability
+    </button>
+  </form>
+</div>

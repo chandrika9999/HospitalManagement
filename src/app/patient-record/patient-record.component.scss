@@ -1,0 +1,96 @@
+.record-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .patient-details, .appointments, .treatment-progress {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .patient-info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .patient-info-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .patient-info-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .patient-info-table td:first-child {
+    font-weight: bold;
+  }
+  
+  .appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .appointments-table th, .appointments-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .appointments-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .appointments-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .appointments-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  ul li {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .treatment-progress p {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+  }
+  
+  .no-data-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    font-style: italic;
+  }
+  

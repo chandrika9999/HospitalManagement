@@ -1,0 +1,51 @@
+<div class="admin-emergency">
+    <h2>Admin - Emergency Alerts</h2>
+    
+    <div *ngIf="emergencyAlerts.length > 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Alert ID</th>
+            <th>Patient ID</th>
+            <th>Alert Time</th>
+            <th>Doctor Assigned</th>
+            <th>Response Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alert of emergencyAlerts">
+            <td>{{ alert.alertId }}</td>
+            <td>{{ alert.patientId }}</td>
+            <td>{{ alert.alertTime }}</td>
+            <td>{{ alert.doctorAssigned || 'Not Assigned' }}</td>
+            <td>{{ alert.responseTime || 'Not Responded' }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="openAssignDoctorForm(alert)">Assign Doctor</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="selectedAlert">
+      <h3>Assign Doctor to Alert ID: {{ selectedAlert.alertId }}</h3>
+      <form (ngSubmit)="assignDoctor()" #assignDoctorForm="ngForm">
+        <div class="form-group">
+          <label for="doctorAssigned">Doctor Name:</label>
+          <input 
+            type="text" 
+            id="doctorAssigned" 
+            [(ngModel)]="selectedAlert.doctorAssigned" 
+            name="doctorAssigned" 
+            class="form-control" 
+            required />
+        </div>
+  
+        <button type="submit" [disabled]="!assignDoctorForm.valid" class="btn btn-success">
+          Assign Doctor
+        </button>
+      </form>
+    </div>
+  </div>
+  

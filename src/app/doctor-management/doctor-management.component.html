@@ -1,0 +1,53 @@
+<p>doctor-management works!</p>
+<div class="doctor-management">
+    <h2>Doctor Management (Admin)</h2>
+  
+  
+    <form (ngSubmit)="newDoctor.DoctorId ? saveDoctor() : addDoctor()">
+      <label for="name">Name</label>
+      <input type="text" id="name" [(ngModel)]="newDoctor.Name" name="name" required>
+  
+      <label for="specialization">Specialization</label>
+      <input type="text" id="specialization" [(ngModel)]="newDoctor.Specialization" name="specialization" required>
+  
+      <label for="contactInfo">Contact Info</label>
+      <input type="text" id="contactInfo" [(ngModel)]="newDoctor.ContactInfo" name="contactInfo" required>
+  
+      <label for="availability">Availability</label>
+      <input type="text" id="availability" [(ngModel)]="newDoctor.Availability" name="availability" required>
+  
+      <label for="department">Department</label>
+      <input type="text" id="department" [(ngModel)]="newDoctor.Department" name="department" required>
+  
+      <button type="submit">{{ newDoctor.DoctorId ? 'Save' : 'Add' }} Doctor</button>
+      <button type="button" (click)="resetForm()">Reset</button>
+    </form>
+  
+
+    <h3>Doctors List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Contact Info</th>
+          <th>Availability</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors">
+          <td>{{ doctor.Name }}</td>
+          <td>{{ doctor.Specialization }}</td>
+          <td>{{ doctor.ContactInfo }}</td>
+          <td>{{ doctor.Availability }}</td>
+          <td>{{ doctor.Department }}</td>
+          <td>
+            <button (click)="editDoctor(doctor)">Edit</button>
+            <button (click)="deleteDoctor(doctor.DoctorId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,45 @@
+
+<p>doctor-dashboard works!</p>
+<div class="doctor-dashboard">
+    <h2>Doctor Dashboard</h2>
+  
+    <h3>Upcoming Appointments</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.PatientName }}</td>
+          <td>{{ appointment.Date }}</td>
+          <td>{{ appointment.Time }}</td>
+          <td>{{ appointment.Status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3>Patient Details</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.Name }}</td>
+          <td>{{ patient.Age }}</td>
+          <td>{{ patient.Gender }}</td>
+          <td>{{ patient.Condition }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
